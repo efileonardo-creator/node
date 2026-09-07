@@ -70,7 +70,7 @@ siguiente información:
 ○ Año 
 ○ Color 
 2. Usa un método de array para recorrer la lista e imprime por consola todos los datos 
-de los automóviles cuyo año sea mayor a 2018. 
+de los automóviles cuyo año sea mayor a 2022. 
 */
     autos.forEach(auto => {(auto.año > 2022 ? console.log(auto) : null)})
 
