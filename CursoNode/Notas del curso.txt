@@ -1,0 +1,4 @@
+Para arrancar el proyecto:
+
+"pnpm init -y"
+
