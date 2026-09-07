@@ -56,15 +56,16 @@ const autos =
     },
     {
         "marca": "Volkswagen",
-        "modelo": "Polo",s
+        "modelo": "Polo",
         "año": 2024,
         "color": "Rojo"
     }
     ];
 
 
-    autos.forEach(auto => {
+    autos.forEach(auto => {(auto.año > 2022 ? console.log(auto) : null)})
 
-    })
+    /*
 
     console.log(autos)
+*/
