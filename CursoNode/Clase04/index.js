@@ -62,10 +62,21 @@ const autos =
     }
     ];
 
-
+/*
+1. Crea un array con 10 objetos, donde cada objeto represente un automóvil con la 
+siguiente información: 
+○ Marca 
+○ Modelo 
+○ Año 
+○ Color 
+2. Usa un método de array para recorrer la lista e imprime por consola todos los datos 
+de los automóviles cuyo año sea mayor a 2018. 
+*/
     autos.forEach(auto => {(auto.año > 2022 ? console.log(auto) : null)})
 
     /*
-
-    console.log(autos)
+1. Crea una función que recorra el array de automóviles. 
+2. Usa destructuring dentro de la función para obtener el color de cada automóvil. 
+3. La función debe aceptar un color como parámetro y devolver por consola cuántos 
+automóviles tienen ese color. 
 */
