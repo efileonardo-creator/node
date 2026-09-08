@@ -80,10 +80,3 @@ de los automóviles cuyo año sea mayor a 2022.
 3. La función debe aceptar un color como parámetro y devolver por consola cuántos 
 automóviles tienen ese color. 
 */
-function recorrerArrayAutos(color){
-    let contador = 0;
-    autos.forEach(auto => (auto.color.toLowerCase() === color.toLowerCase() ? contador = contador + 1 : null));
-    console.log(`La cantidad de autos de color ${color} es: ${contador}`)
-}
-
-recorrerArrayAutos("amarillo");
