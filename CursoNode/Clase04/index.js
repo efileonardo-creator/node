@@ -58,7 +58,7 @@ const autos =
         "marca": "Volkswagen",
         "modelo": "Polo",
         "año": 2024,
-        "color": "Rojo"
+        "color": "Amarillo"
     }
     ];
 
@@ -70,13 +70,20 @@ siguiente información:
 ○ Año 
 ○ Color 
 2. Usa un método de array para recorrer la lista e imprime por consola todos los datos 
-de los automóviles cuyo año sea mayor a 2018. 
+de los automóviles cuyo año sea mayor a 2022. 
 */
     autos.forEach(auto => {(auto.año > 2022 ? console.log(auto) : null)})
 
-    /*
+/*
 1. Crea una función que recorra el array de automóviles. 
 2. Usa destructuring dentro de la función para obtener el color de cada automóvil. 
 3. La función debe aceptar un color como parámetro y devolver por consola cuántos 
 automóviles tienen ese color. 
 */
+function recorrerArrayAutos(color){
+    let contador = 0;
+    autos.forEach(auto => (auto.color.toLowerCase() === color.toLowerCase() ? contador = contador + 1 : null));
+    console.log(`La cantidad de autos de color ${color} es: ${contador}`)
+}
+
+recorrerArrayAutos("amarillo");
