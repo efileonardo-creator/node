@@ -1,7 +1,9 @@
-const args = process.argv.slice(5);
+const args = process.argv.slice(3);
+const data = process.argv.slice(4);
+const id = process.argv.slice(4,5);
 
 console.log(args)
-
+console.log(id)
 
 switch(args){
     case "GET":
