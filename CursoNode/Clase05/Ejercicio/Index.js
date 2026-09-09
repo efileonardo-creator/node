@@ -1,11 +1,15 @@
-const args = process.argv.slice(3);
-const data = process.argv.slice(4);
-const id = process.argv.slice(4,5);
+const args = process.argv.slice(2);
+const data = process.argv.slice(3);
+const id = process.argv.slice(3,4);
 
+/* opciones para verificar los datos que se reciben:
 console.log(args)
+console.log(data)
 console.log(id)
+*/
 
-switch(args){
+switch(args[0]){
+
     case "GET":
         console.log("Toma un dato.");
         break;
@@ -21,3 +25,5 @@ switch(args){
     default:
         console.log("Opción elejida incorrecta.");
     }
+
+
