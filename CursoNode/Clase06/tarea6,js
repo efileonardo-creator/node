@@ -1,0 +1,13 @@
+/** 
+punto 1
+1. Utiliza la API pública de Rick and Morty (docs) para obtener la lista de personajes. 
+2. Con las herramientas then, catch y finally, procesa la respuesta y devuelve por 
+consola un array con los primeros 5 resultados de los 20 personajes recibidos. */
+
+/** punto 2
+
+1. Realiza el mismo ejercicio anterior, pero esta vez usa una función asíncrona con 
+async y await para consumir la API. 
+2. Asegúrate de manejar errores correctamente con un bloque try/catch. 
+
+*/
