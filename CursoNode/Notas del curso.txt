@@ -2,3 +2,5 @@ Para arrancar el proyecto:
 
 "pnpm init -y"
 
+ctrol + shift + v ==> formatea al markdown
+
