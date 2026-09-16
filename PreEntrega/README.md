@@ -15,8 +15,7 @@ asíncrona a la API y devolver la lista completa de productos en la consola.
 Ejemplo: npm run start GET products 
 
 Consultar un Producto Específico: 
-Si ejecutas npm run start GET products/<productId>, el programa debe obtener y 
-mostrar el producto correspondiente al productId indicado. 
+Si ejecutas npm run start GET products/<productId>, el programa debe obtener y mostrar el producto correspondiente al productId indicado. 
 Ejemplo: npm run start GET products/15 
 
 Crear un Producto Nuevo: 
