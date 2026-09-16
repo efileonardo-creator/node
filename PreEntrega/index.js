@@ -25,12 +25,14 @@ const [accion, ...entrada] = process.argv.slice(2);
 console.log(`Acción: ${accion} + Entrada: ${entrada}`);
 const args = accion?.toUpperCase();
 const data = entrada.join(" ");
-posicionCorte = entrada.indexOf("/");
-
-/**  Me quede aca.....
+const posicionCorte = entrada.indexOf("/");
+console.log("posicion del corte: ", posicionCorte);
+/**  Me quede aca..... */
 if (posicionCorte !== -1) {
-const id = entrada;
- */
+    const id = entrada.split(posicionCorte +1);
+} else{
+    console.log("No hay un ID especificado.");
+}
 console.log(`Acción: ${args} + Entrada: ${data} + ID: ${id}`);
 /* opciones para verificar los datos que se reciben:
 console.log(args)
