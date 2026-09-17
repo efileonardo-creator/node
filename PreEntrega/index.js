@@ -24,16 +24,14 @@ async function traerData(){
 const [accion, ...entrada] = process.argv.slice(2);
 console.log(`Acción: ${accion} + Entrada: ${entrada}`);
 const args = accion?.toUpperCase();
-const data = entrada.join(" ");
-const posicionCorte = entrada.indexOf("/");
+const entradaString = entrada.toString();
+const posicionCorte = entradaString.indexOf("/");
 console.log("posicion del corte: ", posicionCorte);
+let ID = null;
 /**  Me quede aca..... */
-if (posicionCorte !== -1) {
-    const id = entrada.split(posicionCorte +1);
-} else{
-    console.log("No hay un ID especificado.");
-}
-console.log(`Acción: ${args} + Entrada: ${data} + ID: ${id}`);
+(posicionCorte !== -1 ? ID =  entradaString.slice(posicionCorte + 1) : console.log("No se especifico un ID."));
+    
+console.log(`Acción: ${args} + Entrada: ${entradaString} + ID: ${ID}`);
 /* opciones para verificar los datos que se reciben:
 console.log(args)
 console.log(data)
@@ -47,11 +45,20 @@ switch(args){
 
     case "GET":
         const productos = await traerData()
-        console.log(`Estos son los productos: `);
-        productos.map(p => console.log(`${p.id}) ${p.title}`));
+        if (ID == null) {
+            console.log(`Estos son los productos: `);
+            productos.map(p => console.log(`${p.id}) ${p.title}`)) 
+            if (productos.ID == undefined) {
+                console.log(`No se encontro un producto con el ID ${ID}.`)
+            }else{
+            console.log(`Este es el producto con ID ${ID}:  `);
+            console.log(`${productos.find(p => p.id === parseInt(ID)).id}) ${productos.find(p => p.id === parseInt(ID)).title}`)
+          
+            
+        }}
         break;
     case "POST":
-        console.log(`Recibimos ${data} sagtisfactoriamente.`);
+        console.log((entrada.length > 0 ? `Recibimos ${entrada} satisfactoriamente.` : `No se recibieron datos.`));
         break;
     case "PUT":
         console.log(`Modificamos el item con id: ${id} satisfactoriamente.`);
