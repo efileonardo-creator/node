@@ -83,5 +83,10 @@ switch(args){
     }
 
     function funcionPost(entrada){
-        console.log((entrada.length > 0 ? `Recibimos ${entrada} satisfactoriamente.` : `No se recibieron datos.`));
+        console.log((entrada.length > 0 ? enviarDatos() : `No se recibieron datos.`));
+    }
+
+    //npm run start POST products <title> <price> <category>
+    function enviarDatos() {
+        `Recibimos ${entrada} satisfactoriamente.`
     }
