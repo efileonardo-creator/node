@@ -53,6 +53,7 @@ switch(args){
         console.log(`Modificamos el item con id: ${id} satisfactoriamente.`);
         break;
     case "DELETE":
+        await funcionDelete(id)
         console.log(`El item con el id: ${id} se eliminó con éxito`);
         break;
     default:
@@ -100,3 +101,15 @@ switch(args){
             .then(data => console.log(data));
             return (`Recibimos ${entrada} satisfactoriamente.`)
     }
+
+    //npm run start DELETE products/7
+
+    //CORREGIR DESDE ACA
+    function funcionDelete(id){
+        fetch(`https://fakestoreapi.com/products/${id}`, {
+              method: 'DELETE'
+        })
+        
+        .then(response => response.json())
+        .then(data => console.log(data))
+    }   
