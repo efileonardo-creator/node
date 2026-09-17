@@ -47,7 +47,7 @@ switch(args){
         await funcionGet(ID)
         break;
     case "POST":
-        funcionPost(entradaString)
+        await funcionPost(entradaString)
         break;
     case "PUT":
         console.log(`Modificamos el item con id: ${id} satisfactoriamente.`);
@@ -82,11 +82,21 @@ switch(args){
         console.log(producto);
     }
 
-    function funcionPost(entrada){
-        console.log((entrada.length > 0 ? enviarDatos() : `No se recibieron datos.`));
+    async function funcionPost(entrada){
+        console.log((entrada.length > 0 ? await enviarDatos(entrada) : `No se recibieron datos.`));
     }
 
     //npm run start POST products <title> <price> <category>
-    function enviarDatos() {
-        `Recibimos ${entrada} satisfactoriamente.`
+    function enviarDatos(entrada) {
+        const [titulo, precio, categoria] = [...entrada.split(",")]
+        const product = { title: titulo, price: precio, category:categoria };
+        const config = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(product)
+        }
+       fetch('https://fakestoreapi.com/products', config )
+            .then(response => response.json())
+            .then(data => console.log(data));
+            return (`Recibimos ${entrada} satisfactoriamente.`)
     }
