@@ -29,7 +29,7 @@ const posicionCorte = entradaString.indexOf("/");
 console.log("posicion del corte: ", posicionCorte);
 let ID = null;
 /**  Me quede aca..... */
-(posicionCorte !== -1 ? ID =  entradaString.slice(posicionCorte + 1) : console.log("No se especifico un ID."));
+(posicionCorte !== -1 ? ID =  parseInt(entradaString.slice(posicionCorte + 1)) : console.log("No se especifico un ID."));
     
 console.log(`Acción: ${args} + Entrada: ${entradaString} + ID: ${ID}`);
 /* opciones para verificar los datos que se reciben:
@@ -44,21 +44,10 @@ npm run start GET products/15
 switch(args){
 
     case "GET":
-        const productos = await traerData()
-        if (ID == null) {
-            console.log(`Estos son los productos: `);
-            productos.map(p => console.log(`${p.id}) ${p.title}`)) 
-            if (productos.ID == undefined) {
-                console.log(`No se encontro un producto con el ID ${ID}.`)
-            }else{
-            console.log(`Este es el producto con ID ${ID}:  `);
-            console.log(`${productos.find(p => p.id === parseInt(ID)).id}) ${productos.find(p => p.id === parseInt(ID)).title}`)
-          
-            
-        }}
+        await funcionGet(ID)
         break;
     case "POST":
-        console.log((entrada.length > 0 ? `Recibimos ${entrada} satisfactoriamente.` : `No se recibieron datos.`));
+        funcionPost(entradaString)
         break;
     case "PUT":
         console.log(`Modificamos el item con id: ${id} satisfactoriamente.`);
@@ -68,4 +57,31 @@ switch(args){
         break;
     default:
         console.log("Opción elejida incorrecta.");
+    }
+
+    async function funcionGet(id) {
+        const productos = await traerData();
+
+        if (!productos) {
+            return;
+        }
+
+        if (id === null) {
+            console.log("Estos son los productos:");
+            productos.forEach(producto => console.log(`${producto.id}) ${producto.title}`));
+            return;
+        }
+
+        const producto = productos.find(producto => producto.id === id);
+        if (producto === undefined) {
+            console.log(`No se encontro un producto con el ID ${id}.`);
+            return;
+        }
+
+        console.log(`Este es el producto con ID ${id}:`);
+        console.log(producto);
+    }
+
+    function funcionPost(entrada){
+        console.log((entrada.length > 0 ? `Recibimos ${entrada} satisfactoriamente.` : `No se recibieron datos.`));
     }
