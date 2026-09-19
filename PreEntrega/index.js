@@ -50,11 +50,11 @@ switch(args){
         await funcionPost(entradaString)
         break;
     case "PUT":
-        console.log(`Modificamos el item con id: ${id} satisfactoriamente.`);
+        console.log(`Modificamos el item con id: ${ID} satisfactoriamente.`);
         break;
     case "DELETE":
-        await funcionDelete(id)
-        console.log(`El item con el id: ${id} se eliminó con éxito`);
+        await funcionDelete(ID)
+        console.log(`El item con el id: ${ID} se eliminó con éxito`);
         break;
     default:
         console.log("Opción elejida incorrecta.");
@@ -111,5 +111,5 @@ switch(args){
         })
         
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => console.log(`${data.title}: ha sido eliminado con éxito.`))
     }   
